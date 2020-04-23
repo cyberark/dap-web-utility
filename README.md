@@ -55,7 +55,7 @@ Works with CyberArk DAP v5 or Conjur OSS.
 ## Contributing
 
 We welcome contributions of all kinds to this repository. For instructions on how to get started and descriptions
-of our development workflows, please see our [contributing guide](https://github.com/cyberark/conjur-api-go/blob/master/CONTRIBUTING.md).
+of our development workflows, please see our [contributing guide](https://github.com/cyberark/dap-web-utility/blob/master/CONTRIBUTING.md).
 
 ## License
 
