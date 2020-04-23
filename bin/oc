@@ -1,0 +1,3 @@
+#!/bin/bash
+/lib/ld-musl-x86_64.so.1 --library-path /lib /opt/oc/oc $@
+

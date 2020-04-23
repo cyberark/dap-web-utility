@@ -1,0 +1,90 @@
+
+<h3>To get started, select a task below:</h3>
+<br/>
+
+<div class="row border">
+  <div class="col-3 bg-light">
+    <br/>
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-master-list" data-toggle="list" href="#list-master" role="tab" aria-controls="master">Deploy Master</a>
+      <a class="list-group-item list-group-item-action" id="list-standby-list" data-toggle="list" href="#list-standby" role="tab" aria-controls="standby">Deploy Standby</a>
+      <a class="list-group-item list-group-item-action" id="list-follower-list" data-toggle="list" href="#list-follower" role="tab" aria-controls="followers">Deploy Followers</a>
+      <a class="list-group-item list-group-item-action" id="list-integration-list" data-toggle="list" href="#list-integration" role="tab" aria-controls="integration">Secure Apps</a>
+    </div>
+    <br/>
+  </div>
+  <div class="col-9">
+    <div class="tab-content" id="nav-tabContent">
+      <div class="tab-pane fade show active" id="list-master" role="tabpanel" aria-labelledby="list-master-list">
+        <div class="row">
+          <div class="col-6">
+            <img src="/static/img/welcome/start-master.png" class="img-fluid"/>
+          </div>
+          <div class="col-6">
+            <br/>
+            <h2>Master</h2>
+            Supports full read/write operations.<br/>
+            Start here if you are going to deploy a new DAP environment<br/>
+            <button type="button" class="btn btn-primary gotolink" data-page="/deploy-master">Continue</button>
+
+          </div>
+        </div>
+      </div>
+
+      <div class="tab-pane fade show" id="list-standby" role="tabpanel" aria-labelledby="list-standby-list">
+        <div class="row">
+          <div class="col-6">
+            <img src="/static/img/welcome/start-standby.png" class="img-fluid"/>
+          </div>
+          <div class="col-6">
+            <br/>
+            <h2>Standby</h2>
+            Ready to take over operations if the master server fails</br>
+            Continue if you would like to add a new standby server<br/>
+
+            <button type="button" class="btn btn-primary disabled">Coming soon...</button>
+
+          </div>
+        </div>
+      </div>
+      
+
+      <div class="tab-pane fade show" id="list-follower" role="tabpanel" aria-labelledby="list-follower-list">
+        <div class="row">
+          <div class="col-6">
+            <img src="/static/img/welcome/start-follower.png" class="img-fluid"/>
+          </div>
+          <div class="col-6">
+            <br/>
+            <h2>Followers</h2>
+            Distribute load from the master and perform read-only actions<br/>
+            Continue if you would like to add new set of followers<br/>
+
+            <button type="button" class="btn btn-primary gotolink" data-page="/deploy-follower">Continue</button>
+
+          </div>
+        </div>
+      </div>
+      
+
+      <div class="tab-pane fade show" id="list-integration" role="tabpanel" aria-labelledby="list-integration-list">
+        <div class="row">
+          <div class="col-6">
+            <img src="/static/img/welcome/start-integration.png" class="img-fluid"/>
+          </div>
+          <div class="col-6">
+            <Br/>
+            <h2>Integrations</h2>
+            Secure secrets in various applications<br/>
+            Continue to integrate and secure applications<br/>
+
+            <button type="button" class="btn btn-primary disabled">Coming soon...</button>
+
+          </div>
+        </div>
+      </div>
+      
+      
+    </div>
+  </div>
+</div>

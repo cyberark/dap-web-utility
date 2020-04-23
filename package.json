@@ -1,0 +1,18 @@
+{
+  "name": "dap-web-utility",
+  "version": "0.0.1",
+  "description": "DAP client that has web interface & bundles with various tools",
+  "authoir":"Quincy Cheng <quincy.cheng@gmail.com>",
+  "private": true,
+  "scripts": {
+    "start": "node ./bin/www"
+  },
+  "dependencies": {
+    "body-parser": "~1.18.2",
+    "dockerode": "^2.5.4",
+    "ejs": "^2.5.7",
+    "express": "^4.16.4",
+    "socket.io": "^2.0.4",
+    "serve-favicon": "^2.4.5"
+  }
+}

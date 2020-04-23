@@ -1,0 +1,20 @@
+FROM node:lts-alpine 
+
+WORKDIR /opt/dap-web-utility/
+
+COPY package.json /opt/dap-web-utility/
+
+RUN cd /opt/dap-web-utility/ && \
+    apk update && \
+    apk add --no-cache bash build-base ruby ruby-dev ruby-etc ruby-bigdecimal ruby-json jq  openssh-client net-tools ca-certificates curl nano git python && \ 
+    npm install --save && \
+    gem install conjur-cli && \
+    apk del build-base ruby-dev && \
+    rm -rf /var/cache/apk/*
+
+COPY bin/oc /usr/local/bin
+
+EXPOSE 3000
+COPY . /opt/dap-web-utility/
+CMD node /opt/dap-web-utility/bin/www
+

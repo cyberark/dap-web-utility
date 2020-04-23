@@ -1,0 +1,151 @@
+<h1>Deploy Master on Docker</h1>
+
+Fill in the following table manually, or <button type="button" class="btn btn-success" id="btnPOC">Click me for POC
+    configuration</button>
+
+<br />
+
+
+<table class="table table-striped border" id="tblInput">
+    <thead>
+        <tr>
+            <th scope="col-1">#</th>
+            <th scope="col-2">Field</th>
+            <th scope="col-2">Value</th>
+            <th scope="col-7">Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">1</th>
+            <td>Container Name </td>
+            <td><input type="text" id="txtContainer"></td>
+            <td>The name to assign to the container.
+                The docker exec container-name phrase identifies the container in which the evoke command will run.</td>
+        </tr>
+
+        <tr>
+            <th scope="row">2</th>
+            <td>Image Name </td>
+            <td><input type="text" id="txtImage"></td>
+            <td>Identifies the repository and Conjur appliance image. You can take the identifier from the docker images
+                command.
+                For example, for Conjur v5.0 the tag could be conjur-appliance:5.0</td>
+        </tr>
+
+
+        <tr>
+            <th scope="row">3</th>
+            <td>Admin Password </td>
+            <td><input type="text" id="txtPassword"></td>
+            <td>The name to assign to the container.Assign a password for the default administrative
+                user. The
+                user name is admin.
+
+                The password must be 12-128 characters, and must include:
+
+                2 uppercase letters
+                2 lowercase letters
+                1 digit
+                1 special character
+                For example: Mypassw0rD1!</td>
+        </tr>
+        <tr>
+            <th scope="row">4</th>
+            <td>Profile </td>
+
+            <td><input type="text" id="txtProfile"></td>
+            <td>Apply a seccomp profile to the DAP container. Use one of the following:
+                <ul>
+                    <li>the constant unconfined; e.g., seccomp:unconfined</li>
+                    <li> the file path to a seccomp profile file; e.g., seccomp:/mypath/conjur-seccomp.json</li>
+                </ul>
+            </td>
+        </tr>
+
+        <tr>
+            <th scope="row">5</th>
+            <td>Host Name </td>
+
+            <td><input type="text" id="txtHostname"></td>
+            <td>The host name for the DAP Server.<br />
+                For local-only access, use any name or use localhost.<br />
+                For remote access, use a DNS-resolvable name or an IP address.<br />
+                The host name must not include an underscore (_).
+            </td>
+        </tr>
+
+        <tr>
+            <th scope="row">6</th>
+            <td>Account Name </td>
+
+            <td><input type="text" id="txtAccountname"></td>
+            <td>Assign an organizational account to this DAP Server. This value appears in database and audit records.
+
+
+            </td>
+        </tr>
+    </tbody>
+</table>
+<br />
+
+<button class="btn btn-light" type="button" data-toggle="collapse" data-target="#collapseInfo" aria-expanded="false"
+    aria-controls="collapseInfo">
+    Show me the template & command
+</button>
+</p>
+<div class="collapse" id="collapseInfo">
+    <div class="card card-body">
+
+        <h3>Template</h3>
+        <pre class="container border" id="theTemplate">
+    docker run --name {{container-name}} -d --restart=always \
+    --security-opt {{profile}} \
+    -p "80:80" -p "443:443" -p "636:636" -p "5432:5432" -p "1999:1999" \
+    {{image-name}} && \
+    docker exec {{container-name}} evoke configure master --accept-eula --hostname {{host-name}} \
+    --admin-password  {{password}} {{account-name}}
+</pre>
+        <br />
+        <h3>Command:</h3>
+        <pre class="container border" id="theCommand">
+</pre>
+
+    </div>
+</div>
+
+
+<button class="btn btn-primary cmd" data-target="theCommand">Execute!</button>
+
+<script>
+
+    $(document).ready(function () {
+
+        $("#btnPOC").click(function () {
+            $("#txtContainer").val("dap");
+            $("#txtImage").val("registry.tld/conjur-appliance:11.3.0");
+            $("#txtPassword").val("Mypassw0rD1!");
+            $("#txtProfile").val("seccomp:unconfined");
+            $("#txtHostname").val("localhost");
+            $("#txtAccountname").val("dev");
+            updateCmd();
+        })
+
+        $('#tblInput input').change(function () {
+            updateCmd();
+        });
+    });
+    function updateCmd() {
+
+        theCmd = $("#theTemplate").html()
+        theCmd = theCmd.replace("{{container-name}}", $("#txtContainer").val());
+        theCmd = theCmd.replace("{{image-name}}", $("#txtImage").val());
+        theCmd = theCmd.replace("{{password}}", $("#txtPassword").val());
+        theCmd = theCmd.replace("{{profile}}", $("#txtProfile").val());
+        theCmd = theCmd.replace("{{host-name}}", $("#txtHostname").val());
+        theCmd = theCmd.replace("{{account-name}}", $("#txtAccountname").val());
+        theCmd = theCmd.replace("{{container-name}}", $("#txtContainer").val());
+        $("#theCommand").html(theCmd)
+        return false;
+    }
+</script>

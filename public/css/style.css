@@ -1,0 +1,48 @@
+body {
+  background: #fff;
+  color: #666666;
+  font-family: "Open Sans", sans-serif;
+  margin-top: 70px;
+}
+
+div.terminal {
+  padding: 9px;
+  background-color: black;
+}
+
+.actionbtn{
+	background: #03A9F4;
+	width: 64px;
+	height: 64px;
+	border-radius: 50%;
+	text-align:center;
+	color: #FFF;
+	box-shadow:0px 0px 3px rgba(0,0,0,0.5),3px 3px 3px rgba(0,0,0,0.25);
+	position: fixed;
+	bottom: 48px;
+	right: 48px;
+	font-size: 2.5em;
+	display: inline-block;
+	cursor: default;
+	z-index: 9998;
+
+}
+
+.actionbtn span {
+	position: relative;
+	bottom: -0.17em;
+	z-index: 9999;
+
+}
+
+.carousel-inner {
+  position: relative;
+  width: 100%;
+  max-height:100vh;
+  overflow: hidden;
+}
+
+.carousel-item{
+  max-height:100vh;
+  min-width: 100%;
+}

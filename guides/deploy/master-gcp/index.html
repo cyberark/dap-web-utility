@@ -1,0 +1,68 @@
+<h1>Deploy Master on Google Cloud Platform</h1>
+<div class="alert alert-info" role="alert">
+    Work in Progress
+</div>
+
+<div id="masterGCPIndicators" class="carousel slide" data-ride="carousel">
+    <div class="carousel-inner ">
+        <div class="carousel-item active">
+
+            DAP Master needs to be install in Google Compute Engine on GCP<br />
+            If you have created a VM on GCP, please connect to it using the console below.<br />
+            </br>
+
+            <button class="btn btn-secondary" href="#masterGCPIndicators" role="button" data-slide="next">
+                No, I haven't created any VM on GCP for DAP Master, let's create one now
+            </button>
+            <br />
+            <br />
+            <button class="btn btn-primary" href="#masterGCPIndicators" data-target="#masterGCPIndicators"
+                data-slide-to="2">
+                Yes, I have created a VM on GCP for DAP Master & have connected to it
+            </button>
+
+        </div>
+        <div class="carousel-item">
+            <h3>Install Google Cloud SDK</h3>
+
+            If you haven't install Google Cloud SDK, please
+            <button class="btn btn-primary cmd" data-target="cmdInstallSDK">Install now</button><br />
+            Pleaes note that Google Cloud SDK will be downloaded to your current folder in the console<br/>
+            <i>Ref: <a href="https://cloud.google.com/sdk/docs" target="_blank">Google Cloud SDK documentation</a></i><br />
+            <br />
+            <button class="btn btn-primary" href="#masterGCPIndicators" data-target="#masterGCPIndicators"
+                data-slide-to="2">
+                Okay, Google Cloud SDK is installed & initalized
+            </button>
+
+            <div class="d-none" id="cmdInstallSDK">
+                wget https://dl.google.com/dl/cloudsdk/channels/rapid/downloads/google-cloud-sdk-289.0.0-linux-x86_64.tar.gz -O google-cloud-sdk.tar.gz && \
+                tar zvxf google-cloud-sdk.tar.gz && \
+                export PATH=$PATH:$PWD/google-cloud-sdk/bin
+                ./google-cloud-sdk/bin/gcloud init  
+            </div>
+
+        </div>
+        <div class="carousel-item">
+          <h3>Create Project</h3>>
+
+
+          
+        </div>
+    </div>
+
+    <br /><br />
+    <ol class="carousel-indicators">
+        <li data-target="#masterGCPIndicators" data-slide-to="0" class="active"></li>
+        <li data-target="#masterGCPIndicators" data-slide-to="1"></li>
+        <li data-target="#masterGCPIndicators" data-slide-to="2"></li>
+    </ol>
+</div>
+
+
+<script>
+    $(document).ready(function () {
+        $('.carousel').carousel('pause')
+
+    });
+</script>

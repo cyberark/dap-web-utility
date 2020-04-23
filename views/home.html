@@ -1,0 +1,22 @@
+<% include include/header.html %>
+  <div class="container" data-page="terminal">
+    <div id="app"></div>
+    <br/>
+    <div id="terminal_title" class="d-flex justify-content-end">
+      <div class="btn-group" role="group" aria-label="terminal buttons" >
+        <button class="btn btn-secondary" id="btn_max_term">
+          <i class="fa fa-window-maximize"></i>
+        </button>
+        <button class="btn btn-secondary" id="btn_min_term">
+          <i class="fa fa-window-minimize"></i>
+        </button>
+      </div>
+    </div>
+
+    <div id="terminal"></div>        
+
+    <div class="actionbtn" id="masterfab" data-toggle="tooltip" data-placement="top" title="Click to show the console">
+      <span><i class="fas fa-desktop"></i></span>
+    </div>
+  </div>
+<% include include/footer.html %>

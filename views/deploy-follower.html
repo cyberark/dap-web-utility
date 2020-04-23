@@ -1,0 +1,495 @@
+<h2>Deploy Follower</h2>
+<br />
+Deploy AAM Dynamic Access Provider (DAP) into many platforms, including Amazon EC2, Linux, macOS, and bare-metal servers
+<br />
+<div class="row border">
+  <div class="col-3 bg-light">
+    <br />
+    <div class="list-group" id="list-tab" role="tablist">
+      <a class="list-group-item list-group-item-action active" id="list-docker-list" data-toggle="list"
+        href="#list-docker" role="tab" aria-controls="linux">Docker (on premise/cloud)</a>
+      <a class="list-group-item list-group-item-action" id="list-aws-list" data-toggle="list" href="#list-aws"
+        role="tab" aria-controls="aws">Amazon EC2</a>
+      <a class="list-group-item list-group-item-action" id="list-openshift-list" data-toggle="list"
+        href="#list-openshift" role="tab" aria-controls="macos">OpenShift</a>
+      <a class="list-group-item list-group-item-action" id="list-k8s-list" data-toggle="list" href="#list-k8s"
+        role="tab" aria-controls="baremetal">Kubernetes & other distro </a>
+    </div>
+    <br />
+  </div>
+  <div class="col-9">
+    <br />
+    <div class="tab-content" id="nav-tabContent">
+      <div class="tab-pane fade show active" id="list-docker" role="tabpanel" aria-labelledby="list-docker-list">
+        <br />
+        <h2>Docker</h2>
+        DAP followers can be deployed on to Docker, either on premise or in the cloud<br />
+        <button type="button" class="btn btn-primary gotolink"
+          data-page="/guides/deploy/follower-docker/">Continue</button>
+      </div>
+
+      <div class="tab-pane fade show" id="list-aws" role="tabpanel" aria-labelledby="list-aws-list">
+        <br />
+        <h2>Amazon EC2</h2>
+        DAP Follower can be deployed on to AWS using AMI & CloudFormation templates<br />
+        <button type="button" class="btn btn-primary gotolink"
+          data-page="/guides/deploy/follower-aws/">Continue</button>
+      </div>
+
+      <div class="tab-pane fade show" id="list-openshift" role="tabpanel" aria-labelledby="list-openshift-list">
+        <br />
+        <h2>OpenShift</h2>
+        There are a few ways to deploy followers on OpenShift<Br />
+        Please answer the following questions to find out the most suitable one for you.
+        <br />
+
+        <div class="container ">
+
+          <div class="row" id="ocp-q1">
+            <div class="col-8">Is unprivileged access required?</div>
+            <div class="col-2">
+
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="ocp-no-root" id="ocp-no-root-yes" value="yes">
+                <label class="form-check-label" for="ocp-no-root-yes">
+                  Yes
+                </label>
+              </div>
+            </div>
+            <div class="col-2">
+
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="ocp-no-root" id="ocp-no-root-no" value="no">
+                <label class="form-check-label" for="ocp-no-root-no">
+                  No
+                </label>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="row" id="ocp-q2">
+            <div class="col-8">Is auto scaling required?</div>
+            <div class="col-2">
+
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="ocp-autoscale" id="ocp-autoscale-yes" value="yes">
+                <label class="form-check-label" for="ocp-autoscale-yes">
+                  Yes
+                </label>
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="ocp-autoscale" id="ocp-autoscale-no" value="no">
+                <label class="form-check-label" for="ocp-autoscale-no">
+                  No
+                </label>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="row" id="ocp-q3">
+            <div class="col-8">Is HSM required?</div>
+            <div class="col-2">
+
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="ocp-hsm" id="ocp-hsm-yes" value="yes">
+                <label class="form-check-label" for="ocp-hsm-yes">
+                  Yes
+                </label>
+              </div>
+            </div>
+            <div class="col-2">
+
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="ocp-hsm" id="ocp-hsm-no" value="no">
+                <label class="form-check-label" for="ocp-hsm-no">
+                  No
+                </label>
+              </div>
+
+            </div>
+          </div>
+
+          <button type="button" class="btn btn-primary gotolink" data-page="/guides/deploy/follower-k8s-appliance/"
+            id="btn-ocp-follower-k8s-appliance">Appliance Followers inside OpenShift</button><br />
+
+          <button type="button" class="btn btn-secondary gotolink" data-page="/guides/deploy/follower-k8s-outside/"
+            id="btn-ocp-follower-k8s-outside">Deploy Appliance Followers outside OpenShift</button><br />
+
+          <button type="button" class="btn btn-primary gotolink"
+            data-page="/guides/deploy/follower-openshift-decomposed/" id="btn-ocp-follower-openshift-decomposed">Deploy
+            DAP Followers for OpenShift</button><br />
+
+          <div class="alert alert-primary" role="alert" id="msg-ocp-incomplete">
+            Please answer all the above questions to proceed
+          </div>
+          <div class="alert alert-warning" role="alert" id="msg-ocp-na">
+            Please contact CyberArk representative for this deployment option
+          </div>
+
+
+        </div>
+
+      </div>
+
+      <div class="tab-pane fade show" id="list-k8s" role="tabpanel" aria-labelledby="list-k8s-list">
+        <br />
+        <h2>Kubernetes</h2>
+
+        There are a few ways to deploy followers on Kubernetes<Br />
+        Please answer the following questions to find out the most suitable one for you.
+        <br />
+
+        <div class="container ">
+
+          <div class="row" id="k8s-q1">
+            <div class="col-8">Is unprivileged access required?</div>
+            <div class="col-2">
+
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="k8s-no-root" id="k8s-no-root-yes" value="yes">
+                <label class="form-check-label" for="k8s-no-root-yes">
+                  Yes
+                </label>
+              </div>
+            </div>
+            <div class="col-2">
+
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="k8s-no-root" id="k8s-no-root-no" value="no">
+                <label class="form-check-label" for="k8s-no-root-no">
+                  No
+                </label>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="row" id="k8s-q2">
+            <div class="col-8">Is auto scaling required?</div>
+            <div class="col-2">
+
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="k8s-autoscale" id="k8s-autoscale-yes" value="yes">
+                <label class="form-check-label" for="k8s-autoscale-yes">
+                  Yes
+                </label>
+              </div>
+            </div>
+            <div class="col-2">
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="k8s-autoscale" id="k8s-autoscale-no" value="no">
+                <label class="form-check-label" for="k8s-autoscale-no">
+                  No
+                </label>
+              </div>
+
+            </div>
+          </div>
+
+          <div class="row" id="k8s-q3">
+            <div class="col-8">Is HSM required?</div>
+            <div class="col-2">
+
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="k8s-hsm" id="k8s-hsm-yes" value="yes">
+                <label class="form-check-label" for="k8s-hsm-yes">
+                  Yes
+                </label>
+              </div>
+            </div>
+            <div class="col-2">
+
+              <div class="form-check">
+                <input class="form-check-input" type="radio" name="k8s-hsm" id="k8s-hsm-no" value="no">
+                <label class="form-check-label" for="k8s-hsm-no">
+                  No
+                </label>
+              </div>
+
+            </div>
+          </div>
+
+          <button type="button" class="btn btn-primary gotolink" data-page="/guides/deploy/follower-k8s-appliance/"
+            id="btn-k8s-follower-k8s-appliance">Appliance Followers inside Kubernetes</button><br />
+
+          <button type="button" class="btn btn-secondary gotolink" data-page="/guides/deploy/follower-k8s-outside/"
+            id="btn-k8s-follower-k8s-outside">Deploy Appliance Followers outside Kubernetes</button><br />
+
+
+          <div class="alert alert-primary" role="alert" id="msg-k8s-incomplete">
+            Please answer all the above questions to proceed
+          </div>
+          <div class="alert alert-warning" role="alert" id="msg-k8s-na">
+            Please contact CyberArk representative for this deployment option
+          </div>
+
+
+
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>
+
+<script>
+
+  $(document).ready(function () {
+
+    $("#btn-ocp-follower-k8s-appliance").hide();
+    $("#btn-ocp-follower-k8s-outside").hide();
+    $("#btn-ocp-follower-openshift-decomposed").hide();
+    $("#msg-ocp-incomplete").show();
+    $("#msg-ocp-na").hide();
+
+    $("#btn-k8s-follower-k8s-appliance").hide();
+    $("#btn-k8s-follower-k8s-outside").hide();
+    $("#msg-k8s-incomplete").show();
+    $("#msg-k8s-na").hide();
+
+    //k8s
+
+    $('#k8s-q1 input, #k8s-q2 input, #k8s-q3 input').change(function () {
+
+      $("#btn-k8s-follower-k8s-appliance").hide();
+      $("#btn-k8s-follower-k8s-outside").hide();
+      $("#msg-k8s-incomplete").show();
+      $("#msg-k8s-na").hide();
+
+
+      k8s_ans1 = $("input[name='k8s-no-root']:checked").val();
+      k8s_ans2 = $("input[name='k8s-autoscale']:checked").val();
+      k8s_ans3 = $("input[name='k8s-hsm']:checked").val();
+
+      switch (k8s_ans1) {
+        case "yes":
+          switch (k8s_ans2) {
+            case "yes":
+              $("#btn-k8s-follower-k8s-appliance").hide();
+              $("#btn-k8s-follower-k8s-outside").hide();
+              $("#msg-k8s-incomplete").hide();
+              $("#msg-k8s-na").show();
+              break;
+            case "no":
+              $("#btn-k8s-follower-k8s-appliance").hide();
+              $("#btn-k8s-follower-k8s-outside").show();
+              $("#msg-k8s-incomplete").hide();
+              $("#msg-k8s-na").hide();
+
+              $("#btn-k8s-follower-k8s-outside").addClass("btn-primary");
+              $("#btn-k8s-follower-k8s-outside").removeClass("btn-secondary");
+              break;
+            case "no":
+              switch (k8s_ans2) {
+                case "yes":
+                  switch (k8s_ans3) {
+                    case "yes":
+                      $("#btn-k8s-follower-k8s-appliance").hide();
+                      $("#btn-k8s-follower-k8s-outside").hide();
+                      $("#msg-k8s-incomplete").hide();
+                      $("#msg-k8s-na").show();
+                      break;
+                    case "no":
+                      $("#btn-k8s-follower-k8s-appliance").show();
+                      $("#btn-k8s-follower-k8s-outside").hide();
+                      $("#msg-k8s-incomplete").hide();
+                      $("#msg-k8s-na").hide();
+
+
+                      $("#btn-k8s-follower-k8s-appliance").addClass("btn-primary");
+                      $("#btn-k8s-follower-k8s-appliance").removeClass("btn-secondary");
+                      break;
+                  }
+                  break;
+                case "no":
+                  switch (k8s_ans3) {
+                    case "yes":
+                      $("#btn-k8s-follower-k8s-appliance").hide();
+                      $("#btn-k8s-follower-k8s-outside").show();
+                      $("#msg-k8s-incomplete").hide();
+
+                      $("#btn-k8s-follower-k8s-outside").addClass("btn-primary");
+                      $("#btn-k8s-follower-k8s-outside").removeClass("btn-secondary");
+                      break;
+                    case "no":
+                      $("#btn-k8s-follower-k8s-appliance").hide();
+                      $("#btn-k8s-follower-k8s-outside").show();
+                      $("#msg-k8s-incomplete").hide();
+
+                      $("#btn-k8s-follower-k8s-outside").addClass("btn-primary");
+                      $("#btn-k8s-follower-k8s-outside").removeClass("btn-secondary");
+
+                      break;
+                  }
+                  break;
+              }
+              break;
+          }
+
+          break;
+        case "no":
+          switch (k8s_ans2) {
+            case "yes":
+              switch (k8s_ans3) {
+                case "yes":
+                  $("#btn-k8s-follower-k8s-appliance").hide();
+                  $("#btn-k8s-follower-k8s-outside").hide();
+                  $("#msg-k8s-incomplete").hide();
+                  $("#msg-k8s-na").show();
+                  break;
+                case "no":
+                  $("#btn-k8s-follower-k8s-appliance").show();
+                  $("#btn-k8s-follower-k8s-outside").hide();
+                  $("#msg-k8s-incomplete").hide();
+                  $("#msg-k8s-na").hide();
+
+                  $("#btn-k8s-follower-k8s-appliance").addClass("btn-primary");
+                  $("#btn-k8s-follower-k8s-appliance").removeClass("btn-secondary");
+                  break;
+              }
+              break;
+            case "no":
+
+              $("#btn-k8s-follower-k8s-appliance").show();
+              $("#btn-k8s-follower-k8s-outside").show();
+              $("#msg-k8s-incomplete").hide();
+              $("#msg-k8s-na").hide();
+
+              $("#btn-k8s-follower-k8s-appliance").addClass("btn-primary");
+              $("#btn-k8s-follower-k8s-appliance").removeClass("btn-secondary");
+              $("#btn-k8s-follower-k8s-outside").addClass("btn-secondary");
+              $("#btn-k8s-follower-k8s-outside").removeClass("btn-primary");
+              break;
+          }
+          break;
+      }
+
+    });
+
+
+    // OCP
+    $('#ocp-q1 input, #ocp-q2 input, #ocp-q3 input').change(function () {
+      ocp_ans1 = $("input[name='ocp-no-root']:checked").val();
+      ocp_ans2 = $("input[name='ocp-autoscale']:checked").val();
+      ocp_ans3 = $("input[name='ocp-hsm']:checked").val();
+
+      switch (ocp_ans1) {
+        case "yes":
+          switch (ocp_ans2) {
+            case "yes":
+              switch (ocp_ans3) {
+                case "yes":
+                  $("#btn-ocp-follower-k8s-appliance").hide();
+                  $("#btn-ocp-follower-k8s-outside").hide();
+                  $("#btn-ocp-follower-openshift-decomposed").hide();
+                  $("#msg-ocp-incomplete").hide();
+                  $("#msg-ocp-na").show();
+                  break;
+                case "no":
+                  $("#btn-ocp-follower-k8s-appliance").hide();
+                  $("#btn-ocp-follower-k8s-outside").hide();
+                  $("#btn-ocp-follower-openshift-decomposed").show();
+                  $("#msg-ocp-incomplete").hide();
+                  $("#msg-ocp-na").hide();
+
+                  $("#btn-ocp-follower-openshift-decomposed").addClass("btn-primary");
+                  $("#btn-ocp-follower-openshift-decomposed").removeClass("btn-secondary");;
+
+                  break;
+              }
+              break;
+            case "no":
+              $("#ocp-q3").show();
+              switch (ocp_ans3) {
+                case "yes":
+                  $("#btn-ocp-follower-k8s-appliance").hide();
+                  $("#btn-ocp-follower-k8s-outside").show();
+                  $("#btn-ocp-follower-openshift-decomposed").hide();
+                  $("#msg-ocp-incomplete").hide();
+                  $("#msg-ocp-na").hide();
+
+                  $("#btn-ocp-follower-k8s-outside").addClass("btn-primary");
+                  $("#btn-ocp-follower-k8s-outside").removeClass("btn-secondary");
+                  break;
+                case "no":
+                  $("#btn-ocp-follower-k8s-appliance").hide();
+                  $("#btn-ocp-follower-k8s-outside").show();
+                  $("#btn-ocp-follower-openshift-decomposed").show();
+                  $("#msg-ocp-incomplete").hide();
+                  $("#msg-ocp-na").hide();
+
+                  $("#btn-ocp-follower-k8s-outside").addClass("btn-primary");
+                  $("#btn-ocp-follower-k8s-outside").removeClass("btn-secondary");
+                  $("#btn-ocp-follower-openshift-decomposed").addClass("btn-secondary");
+                  $("#btn-ocp-follower-openshift-decomposed").removeClass("btn-primary");
+                  break;
+              }
+          }
+
+          break;
+        case "no":
+          switch (ocp_ans2) {
+            case "yes":
+              switch (ocp_ans3) {
+                case "yes":
+                  $("#btn-ocp-follower-k8s-appliance").hide();
+                  $("#btn-ocp-follower-k8s-outside").hide();
+                  $("#btn-ocp-follower-openshift-decomposed").hide();
+                  $("#msg-ocp-incomplete").hide();
+                  $("#msg-ocp-na").show();
+                  break;
+                case "no":
+                  $("#btn-ocp-follower-k8s-appliance").show();
+                  $("#btn-ocp-follower-k8s-outside").hide();
+                  $("#btn-ocp-follower-openshift-decomposed").show();
+                  $("#msg-ocp-incomplete").hide();
+                  $("#msg-ocp-na").hide();
+
+                  $("#btn-ocp-follower-k8s-appliance").addClass("btn-primary");
+                  $("#btn-ocp-follower-k8s-appliance").removeClass("btn-secondary");
+                  $("#btn-ocp-follower-openshift-decomposed").addClass("btn-secondary");
+                  $("#btn-ocp-follower-openshift-decomposed").removeClass("btn-primary");
+                  break;
+              }
+              break;
+            case "no":
+              $("#ocp-q3").show();
+              switch (ocp_ans3) {
+                case "yes":
+                  $("#btn-ocp-follower-k8s-appliance").show();
+                  $("#btn-ocp-follower-k8s-outside").show();
+                  $("#btn-ocp-follower-openshift-decomposed").hide();
+                  $("#msg-ocp-incomplete").hide();
+                  $("#msg-ocp-na").hide();
+
+                  $("#btn-ocp-follower-k8s-appliance").addClass("btn-primary");
+                  $("#btn-ocp-follower-k8s-appliance").removeClass("btn-secondary");
+                  $("#btn-ocp-follower-k8s-outside").addClass("btn-secondary");
+                  $("#btn-ocp-follower-k8s-outside").removeClass("btn-primary");
+                  break;
+                case "no":
+                  $("#btn-ocp-follower-k8s-appliance").show();
+                  $("#btn-ocp-follower-k8s-outside").show();
+                  $("#btn-ocp-follower-openshift-decomposed").show();
+                  $("#msg-ocp-incomplete").hide();
+                  $("#msg-ocp-na").hide();
+
+                  $("#btn-ocp-follower-k8s-appliance").addClass("btn-primary");
+                  $("#btn-ocp-follower-k8s-appliance").removeClass("btn-secondary");
+                  $("#btn-ocp-follower-k8s-outside").addClass("btn-secondary");
+                  $("#btn-ocp-follower-k8s-outside").removeClass("btn-primary");
+                  $("#btn-ocp-follower-openshift-decomposed").addClass("btn-secondary");
+                  $("#btn-ocp-follower-openshift-decomposed").removeClass("btn-primary");
+                  break;
+              }
+          }
+          break;
+      }
+    });
+  });
+</script>
