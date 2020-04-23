@@ -11,15 +11,15 @@ Simplify DAP/Conjur Deployment & Operations
 ![](https://img.shields.io/badge/version-0_1-black.svg)
 
 ## Features
-### Simplcity
-- On screen instruction - minize your time & effort for scripting
-- Command line console is always avaliable for you. Click the floating action button at the bottom right of the screen to toggle it
-- Smaller in image size, comparing to offical conjur-cli
-- Comes with handy tools (see below)
+### Simplicity
+- On-screen instructions minimize your time & effort for scripting
+- Command-line console is always avaliable to you: click the floating action button at the bottom right of the screen to toggle it
+- Smaller in image size, compared to the official [Conjur CLI](https://hub.docker.com/r/cyberark/conjur-cli)
+- Comes built-in with handy tools (see below)
 
 ### Security
-- No persistent storage, your home folder is mounted as our home folder
-- The tools use native mechanism to manage its own credentials
+- No persistent storage; your home folder is mounted as our home folder
+- The tool uses a native mechanism to manage its own credentials
 
 ### Tools
 - docker client, docker-compose
@@ -38,14 +38,14 @@ Simplify DAP/Conjur Deployment & Operations
 2. Web Browser
 3. Internet access
 
-Works with CyberArk DAP v5 or Conjur OSS.
+Works with CyberArk DAP v11+ or Conjur OSS v1+.
 
 ## Usage instructions
 
 1. Execute `docker run -p 3000:3000 -v /var/run/docker.sock:/var/run/docker.sock -v $HOME:/root quincycheng/conjur-webcli:0.1`
-2. Browse http://localhost:3000 using your preferred web browser
+2. Navigate to http://localhost:3000 using your preferred web browser
 
-## TODO
+## Future work
  - Master on AWS
  - Standby
  - Followers
