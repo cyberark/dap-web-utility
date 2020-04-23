@@ -1,30 +1,56 @@
-# {Your project name}
-TODO: Insert brief description of your project
+# DAP Web Utility
+Simplify DAP/Conjur Deployment & Operations
 
-TODO:
-- [ ] Edit the [`CONTRIBUTING.md`](./CONTRIBUTING.md) with development and contribution
-  guidelines for your specific project
-- [ ] Update the [feature templates](./.github/ISSUE_TEMPLATE/) with the correct labels
-  for your specific project
-- [ ] Fill out this README, addressing all TODOs
-- [ ] The project comes by default with an [Apache 2.0 License](./LICENSE) - if you would
-  prefer to use some other license, you'll need to revise this file
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)  ![](https://img.shields.io/badge/Certification%20Level-Community-28A745?link=https://github.com/cyberark/community/blob/master/Conjur/conventions/certification-levels.md)
 
-TODO: Select the appropriate certification level icon below
-- ![](https://img.shields.io/badge/Certification%20Level-Certified-6C757D?link=https://github.com/cyberark/community/blob/master/Conjur/conventions/certification-levels.md)
-- ![](https://img.shields.io/badge/Certification%20Level-Trusted-007BFF?link=https://github.com/cyberark/community/blob/master/Conjur/conventions/certification-levels.md)
-- ![](https://img.shields.io/badge/Certification%20Level-Community-28A745?link=https://github.com/cyberark/community/blob/master/Conjur/conventions/certification-levels.md)
+![](https://img.shields.io/badge/language-javascript-red.svg)
+![](https://img.shields.io/badge/language-jQuery-blue.svg)
+![](https://img.shields.io/badge/language-nodeJS-pink.svg)
+![](https://img.shields.io/badge/platform-docker-orange.svg)
+
+![](https://img.shields.io/badge/version-0_1-black.svg)
+
+## Features
+### Simplcity
+- On screen instruction - minize your time & effort for scripting
+- Command line console is always avaliable for you. Click the floating action button at the bottom right of the screen to toggle it
+- Smaller in image size, comparing to offical conjur-cli
+- Comes with handy tools (see below)
+
+### Security
+- No persistent storage, your home folder is mounted as our home folder
+- The tools use native mechanism to manage its own credentials
+
+### Tools
+- docker client, docker-compose
+- kubectl
+- oc client
+- SSH Client
+- jq
+- vi, nano
+- SSH Client
+- net-tools, including ping
+- curl, wget
 
 ## Requirements
 
-TODO: Add any requirements that apply to your project here. Which Conjur / DAP versions is it
-compatible with? Does it integrate with other tools / projects - and if so, what versions of those
-does it require?
+1. Docker on Linux / macOS
+2. Web Browser
+3. Internet access
+
+Works with CyberArk DAP v5 or Conjur OSS.
 
 ## Usage instructions
 
-TODO: add details for how to use your project. Examples can be quite nice here. You should have
-a high level overview of the benefit of your project and its main use cases.
+1. Execute `docker run -p 3000:3000 -v /var/run/docker.sock:/var/run/docker.sock -v $HOME:/root quincycheng/conjur-webcli:0.1`
+2. Browse http://localhost:3000 using your preferred web browser
+
+## TODO
+ - Master on AWS
+ - Standby
+ - Followers
+ - Integrations
+ - More guidelines 
 
 ## Contributing
 
