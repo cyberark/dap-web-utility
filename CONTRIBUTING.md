@@ -1,8 +1,5 @@
 # Contributing
 
-[Are you accepting contributions at this time? If not, please state that here.
-No need to include content from the rest of this document.]
-
 For general contribution and community guidelines, please see the [community repo](https://github.com/cyberark/community).
 
 ## Table of Contents
@@ -14,15 +11,16 @@ For general contribution and community guidelines, please see the [community rep
 
 ## Development
 
-[What development tools are required to start working on this project?]
+Docker & Text editor are required 
+
 
 ## Testing
 
-[Instructions for running the test suite]
+Execute `/bin/restart.sh`
 
 ## Releases
 
-[Instructions for creating a new release]
+TODO: Instructions for creating a new release
 
 ## Contributing workflow
 
@@ -36,4 +34,4 @@ For general contribution and community guidelines, please see the [community rep
 From here your pull request will be reviewed and once you've responded to all
 feedback it will be merged into the project. Congratulations, you're a
 contributor!
-dd
+
