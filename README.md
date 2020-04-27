@@ -1,14 +1,19 @@
 # DAP Web Utility
 Simplify DAP/Conjur Deployment & Operations
 
-[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0)  ![](https://img.shields.io/badge/Certification%20Level-Community-28A745?link=https://github.com/cyberark/community/blob/master/Conjur/conventions/certification-levels.md)
-
+[![License](https://img.shields.io/badge/License-Apache%202.0-blue.svg)](https://opensource.org/licenses/Apache-2.0) 
 ![](https://img.shields.io/badge/language-javascript-red.svg)
 ![](https://img.shields.io/badge/language-jQuery-blue.svg)
 ![](https://img.shields.io/badge/language-nodeJS-pink.svg)
 ![](https://img.shields.io/badge/platform-docker-orange.svg)
 
 ![](https://img.shields.io/badge/version-0_1-black.svg)
+
+## Certification Level
+![](https://img.shields.io/badge/Certification%20Level-Community-28A745?link=https://github.com/cyberark/community/blob/master/Conjur/conventions/certification-levels.md)
+
+This repo is a **Community** level project. It's a community contributed project that **is not reviewed or supported
+by CyberArk**. For more detailed information on our certification levels, see [our community guidelines](https://github.com/cyberark/community/blob/master/Conjur/conventions/certification-levels.md#community).
 
 ## Features
 ### Simplicity
