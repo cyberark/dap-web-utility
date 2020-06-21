@@ -20,52 +20,67 @@
     }
 
     function updatePolicy() {
-        let output = "";
+        let output;
         if (!hostId) {
             output = "host ID is missing";
         } else if (!encodedToken) {
-            output = "Azure AD token is missing";
+            output = "Azure managed identity token is missing";
         } else {
             output = getPolicyFromToken(encodedToken, hostId);
         }
-        $("#output").html(output);
+        $("#policy").html(output);
     }
 
-    function getPolicyFromToken(encodedToken, appId) {
+    function getPolicyFromToken(encodedToken) {
         try {
             let decodedToken = jwt_decode(encodedToken);
-            let token = parseAzureToken(decodedToken);
+            let azureIdentity = parseAzureToken(decodedToken);
+            let identityAnnotation = azureIdentity.isUserIdentity ? "user-assigned-identity" : "system-assigned-identity";
 
             return `
             - !host
               id: ${hostId}
               annotations:
-                authn-azure/subscription-id: ${token.subscriptionId}
-                authn-azure/resource-group: ${token.resourceGroup}
+                authn-azure/subscription-id: ${azureIdentity.subscriptionId}
+                authn-azure/resource-group: ${azureIdentity.resourceGroup}
               # The following is optional
-                authn-azure/${token.isUserIdentity ? "user" : "system"}-assigned-identity: ${token.identity}
+                authn-azure/${identityAnnotation}: ${azureIdentity.identity}
             `;
         } catch (e) {
             console.error(e);
-            return "Failed to parse Azure AD Token"
+            return "Failed to parse Azure managed identity Token: \n" + e;
         }
     }
 
     function parseAzureToken(token) {
-        return token.xms_mirid.split('/').reduce((azureIdentity, cur, i, arr) => {
-            switch (cur) {
-                case "subscriptions":
-                    azureIdentity.subscriptionId = arr[i + 1];
-                    break;
-                case "resourcegroups":
-                    azureIdentity.resourceGroup = arr[i + 1];
-                    break;
-                case "providers":
-                    azureIdentity.isUserIdentity = arr.includes("Microsoft.ManagedIdentity", i + 1);
-                    azureIdentity.identity = azureIdentity.isUserIdentity ? arr[arr.length - 1] : token.oid;
-                    break;
-            }
-            return azureIdentity;
-        }, {});
+        let subscriptionRegex = /\bsubscriptions\/([^\/]+)/;
+        let subscription = findInXmsMirid("subscriptions", subscriptionRegex, token);
+
+        let resourceGroupsRegex = /\bresourcegroups\/([^\/]+)/;
+        let resourceGroup = findInXmsMirid("resourcegroups", resourceGroupsRegex, token);
+
+        let azureIdentity = {
+            subscriptionId: subscription,
+            resourceGroup: resourceGroup
+        };
+
+        let providersRegex = /\bproviders\/(.+)$/;
+        let providers = findInXmsMirid("providers", providersRegex, token);
+
+        let userIdentityRegex = /Microsoft\.ManagedIdentity\/(?:[^\/]+\/)*([^\/]+)/;
+        let userIdentity = userIdentityRegex.exec(providers);
+
+        azureIdentity.isUserIdentity = userIdentity && userIdentity.length > 1;
+        azureIdentity.identity = azureIdentity.isUserIdentity ? userIdentity[1] : token.oid;
+
+        return azureIdentity;
+    }
+
+    function findInXmsMirid(name, subscriptionRegex, token) {
+        let subscriptionMatch = subscriptionRegex.exec(token.xms_mirid);
+        if (!subscriptionMatch || subscriptionMatch.length <= 1){
+            throw new Error(`Failed to find ${name} in xms_mirid: ${token.xms_mirid}`);
+        }
+        return subscriptionMatch[1];
     }
 })();

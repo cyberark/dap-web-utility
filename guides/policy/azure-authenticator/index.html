@@ -1,6 +1,8 @@
 <h1>Generate Azure Authenticator host policy</h1>
 
-Generate a policy defining a host that can authenticate with the Azure Authenticator, using an Azure AD token
+Generate a Conjur host policy definition according to
+<a href="https://docs.conjur.org/Latest/en/Content/Operations/Services/azure_authn.htm#ConfiguretheAzureAuthenticator">Azure Authenticator configuration</a>
+using an Azure managed identity token
 
 <br />
 <br />
@@ -26,7 +28,7 @@ Generate a policy defining a host that can authenticate with the Azure Authentic
 
 <br />
 
-Azure AD token
+Azure managed identity token
 <textarea class="container text-monospace small border" style="height: 291px" id="encodedToken"></textarea>
 
 <br />
@@ -35,8 +37,8 @@ Azure AD token
 <div class="show" id="collapseInfo">
     <div class="card card-body">
         <h3>Policy</h3>
-        <pre class="container border" id="output">
-</pre>
+        <pre class="container border" id="policy">
+        </pre>
 
     </div>
 </div>
