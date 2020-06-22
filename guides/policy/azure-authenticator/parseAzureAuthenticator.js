@@ -20,7 +20,7 @@
     }
 
     function updatePolicy() {
-        let output;
+        let output = '';
         if (!hostId) {
             output = "host ID is missing";
         } else if (!encodedToken) {
@@ -53,19 +53,16 @@
     }
 
     function parseAzureToken(token) {
-        let subscriptionRegex = /\bsubscriptions\/([^\/]+)/;
-        let subscription = findInXmsMirid("subscriptions", subscriptionRegex, token);
+        let subscription = findInXmsMirid("subscriptions", false, token);
 
-        let resourceGroupsRegex = /\bresourcegroups\/([^\/]+)/;
-        let resourceGroup = findInXmsMirid("resourcegroups", resourceGroupsRegex, token);
+        let resourceGroup = findInXmsMirid("resourcegroups", false, token);
 
         let azureIdentity = {
             subscriptionId: subscription,
             resourceGroup: resourceGroup
         };
 
-        let providersRegex = /\bproviders\/(.+)$/;
-        let providers = findInXmsMirid("providers", providersRegex, token);
+        let providers = findInXmsMirid("providers", true, token);
 
         let userIdentityRegex = /Microsoft\.ManagedIdentity\/(?:[^\/]+\/)*([^\/]+)/;
         let userIdentity = userIdentityRegex.exec(providers);
@@ -76,10 +73,11 @@
         return azureIdentity;
     }
 
-    function findInXmsMirid(name, subscriptionRegex, token) {
-        let subscriptionMatch = subscriptionRegex.exec(token.xms_mirid);
+    function findInXmsMirid(xmsMiridKey, shouldMatchToEnd, token) {
+        let valueRegex = shouldMatchToEnd ? '(.+)$' : '([^\\/]+)';
+        let subscriptionMatch = token.xms_mirid.match(`\\b${xmsMiridKey}\\/${valueRegex}`);
         if (!subscriptionMatch || subscriptionMatch.length <= 1){
-            throw new Error(`Failed to find ${name} in xms_mirid: ${token.xms_mirid}`);
+            throw new Error(`Failed to find ${xmsMiridKey} in xms_mirid: ${token.xms_mirid}`);
         }
         return subscriptionMatch[1];
     }
