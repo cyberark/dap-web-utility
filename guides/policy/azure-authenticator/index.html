@@ -1,0 +1,47 @@
+<h1>Generate Azure Authenticator host policy</h1>
+
+Generate a Conjur host policy definition according to
+<a href="https://docs.conjur.org/Latest/en/Content/Operations/Services/azure_authn.htm#ConfiguretheAzureAuthenticator">Azure Authenticator configuration</a>
+using an Azure managed identity token
+
+<br />
+<br />
+
+<table class="table table-striped border" id="tblInput">
+    <thead>
+        <tr>
+            <th scope="col-1">#</th>
+            <th scope="col-2">Field</th>
+            <th scope="col-2">Value</th>
+            <th scope="col-7">Description</th>
+        </tr>
+    </thead>
+    <tbody>
+        <tr>
+            <th scope="row">1</th>
+            <td>Host ID</td>
+            <td><input type="text" id="txtHostId"></td>
+            <td>The ID you want to use in the policy to identify the host.</td>
+        </tr>
+    </tbody>
+</table>
+
+<br />
+
+Azure managed identity token
+<textarea class="container text-monospace small border" style="height: 291px" id="encodedToken"></textarea>
+
+<br />
+
+</p>
+<div class="show" id="collapseInfo">
+    <div class="card card-body">
+        <h3>Policy</h3>
+        <pre class="container border" id="policy">
+        </pre>
+
+    </div>
+</div>
+
+<script src="/guides/policy/azure-authenticator/jwt-decode.min.js"></script>
+<script src="/guides/policy/azure-authenticator/parseAzureAuthenticator.js"></script>
